@@ -32,10 +32,7 @@ def index():
             #print(prod_html)
             commentboxes = prod_html.find_all('div', {'class': "_3nrCtb"})
 
-            filename = searchString + ".csv"
-            fw = open(filename, "w")
-            headers = "Product, Customer Name, Rating, Heading, Comment \n"
-            fw.write(headers)
+            
             reviews = []
             for commentbox in commentboxes:
                 try:
@@ -70,7 +67,7 @@ def index():
                           "Comment": custComment}
 
                 reviews.append(mydict)
-            return render_template('results.html', reviews=reviews[0:(len(reviews)-1)])
+            return render_template('results.html', reviews=reviews)
         except Exception as e:
             print('The Exception message is: ',e)
             return 'something is wrong'
