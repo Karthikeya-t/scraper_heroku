@@ -27,13 +27,13 @@ def index():
             box = bigboxes[0]
             productLink = "https://www.flipkart.com" + box.div.div.div.a['href']
             prodRes = requests.get(productLink)
-            prodRes.encoding='utf-8'
+            #prodRes.encoding='utf-8'
             prod_html = bs(prodRes.text, "html.parser")
             #print(prod_html)
-            commentboxes = prod_html.find_all('div', {'class': "_3nrCtb"})
+            commentboxes = prod_html.find_all('div', {'class': "_16PBlm"})
 
             
-            reviews = []
+            reviews= []
             for commentbox in commentboxes:
                 try:
                     #name.encode(encoding='utf-8')
@@ -61,6 +61,7 @@ def index():
                     #custComment.encode(encoding='utf-8')
                     custComment = comtag[0].div.text
                 except Exception as e:
+                    custComment = 'No Customer Comment'
                     print("Exception while creating dictionary: ",e)
 
                 mydict = {"Product": searchString, "Name": name, "Rating": rating, "CommentHead": commentHead,
@@ -71,7 +72,7 @@ def index():
         except Exception as e:
             print('The Exception message is: ',e)
             return 'something is wrong'
-        return render_template('results.html')
+        #return render_template('results.html')
 
     else:
         return render_template('index.html')
