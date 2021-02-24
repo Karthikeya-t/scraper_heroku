@@ -5,9 +5,11 @@ made using beautiful soup,flask.
 **output is**
 ![](images/op.PNG)
 
-when it not works it shows **"something went wrong"** on screen then edit the class values in code
+when it not works it shows **"something went wrong"** on screen 
+
+then edit the class values in code
 ![](images/1.jpg)
- then comments box class value
+ then review/comments box class value
  ![](images/2.jpg)
- 
+ finally content of reviews
  ![]( images/Inked3_LI.jpg)
